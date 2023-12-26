@@ -1,0 +1,16 @@
+<h2>Task List</h2>
+{% for obj in object  %}
+<div>
+    <a href="{% url "edit" obj.id %}">Update</a>
+    <a href="{% url "delete" obj.id %}">Delete</a>
+    {% if obj.completed == True %}
+    <strike>{{ obj.title }}</strike>
+    {% else %}
+    <span>{{ obj.title }}</span>
+    {% endif %}
+</div>
+{% endfor %}
+
+<button>
+    <a href="{% url "create" %}">Create Another Task!</a>
+</button>
